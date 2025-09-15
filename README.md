@@ -1,7 +1,3 @@
-Here’s a suggested README.md for the **task-processor** repository. You can modify/expand it as per project specifics.
-
----
-
 # Task Processor
 
 A background task processing system built with Node.js + Docker. It supports worker + API components, and allows scheduling or executing asynchronous jobs reliably.
@@ -158,11 +154,7 @@ If you’d like to contribute, here are a few guidelines:
 
 Please adhere to consistent code style, write meaningful commits and tests for new functionality.
 
----
 
-## License
-
-*(Specify license here — e.g. MIT, Apache 2.0, etc.)*
 
 ---
 
