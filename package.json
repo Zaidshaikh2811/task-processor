@@ -16,7 +16,8 @@
     "express": "^5.1.0",
     "ioredis": "^5.7.0",
     "node-cron": "^4.2.1",
-    "simple-git": "^3.28.0"
+    "simple-git": "^3.28.0",
+    "cron": "^2.3.0"
   },
   "repository": {
     "type": "git",

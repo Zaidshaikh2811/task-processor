@@ -120,6 +120,9 @@ function getNextCommitTimes() {
 
 // Run once immediately (if under daily limit)
 console.log("🤖 Daily commit bot starting...");
+console.log(`🔑 GitHub Token present: ${process.env.GITHUB_TOKEN ? 'Yes' : 'No'}`);
+console.log(`📁 Current directory: ${process.cwd()}`);
+console.log(`🌐 Repository URL: ${REPO_URL.replace(process.env.GITHUB_TOKEN || 'TOKEN', '***TOKEN***')}`);
 attemptDailyCommit();
 
 // Schedule cron job -> runs every 14 minutes
