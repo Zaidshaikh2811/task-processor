@@ -74,7 +74,15 @@ async function attemptDailyCommit() {
 
         await git.add(".");
         await git.commit(`Daily commit ${dailyCommitCount + 1}/3: ${timestamp}`);
-        await git.push("origin", BRANCH);
+
+        // Try to push, handle first push scenario
+        try {
+            await git.push("origin", BRANCH);
+        } catch (pushErr) {
+            // If regular push fails, try setting upstream
+            console.log('🔄 Setting upstream branch for first push...');
+            await git.push(["-u", "origin", BRANCH]);
+        }
 
         dailyCommitCount++;
         console.log(`✅ Successfully committed and pushed (${dailyCommitCount}/3) at ${timestamp}`);
