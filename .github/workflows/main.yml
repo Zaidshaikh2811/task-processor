@@ -1,0 +1,31 @@
+name: Auto Commit Daily at 4:50 IST
+
+on:
+  workflow_dispatch:        # allow manual run
+  schedule:
+    - cron: "20 11 * * *"   # runs daily at 11:20 UTC (4:50 PM IST)
+
+permissions:
+  contents: write
+
+jobs:
+  auto-commits:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Make a commit
+        run: |
+          echo "Auto commit at $(date)" >> commit_log.txt
+          git add commit_log.txt
+          git commit -m "Auto commit at $(date)"
+          git push
